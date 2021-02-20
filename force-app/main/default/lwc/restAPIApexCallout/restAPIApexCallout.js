@@ -2,14 +2,12 @@ import { LightningElement, api, track } from "lwc";
 import getPicOfTheDay from "@salesforce/apex/PicOftheDay.getPicOfTheDay";
 export default class RestAPIApexCallout extends LightningElement {
   apodresult;
-  loading = false;
-  response = false;
+  loading = false;  
   image = true;
 
   handleClick() {
     this.loading = true;
-    this.response = false;
-
+    
     getPicOfTheDay({})
       .then((res) => {
         this.loading = false;

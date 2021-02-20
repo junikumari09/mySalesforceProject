@@ -5,18 +5,10 @@
     </h2>
 
     <!-- Base variant: Makes a button look like a link -->
-    <lightning-button
-      variant="brand"
-      label="Show"
-      title="Pic"
-      onclick={handleClick}
-      class="slds-m-left_x-small"
-    ></lightning-button>
+    <lightning-button variant="brand" label="Show JS Fetch Callout" title="Pic" onclick={handleClick}
+      class="slds-m-left_x-small"></lightning-button>
     <template if:true={loading}>
-      <lightning-spinner
-        alternative-text="Loading"
-        size="Large"
-      ></lightning-spinner>
+      <lightning-spinner alternative-text="Loading" size="Large"></lightning-spinner>
     </template>
 
     <template if:true={apodresult}>
@@ -25,14 +17,8 @@
           <img src={apodresult.url} />
         </template>
         <template if:false={image}>
-          <iframe
-            width="300"
-            height="150"
-            src={apodresult.url}
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <iframe width="300" height="150" src={apodresult.url} frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </template>
         <lightning-textarea label={apodresult.explanation}></lightning-textarea>
       </lightning-card>

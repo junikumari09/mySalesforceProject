@@ -3,10 +3,11 @@ import { LightningElement } from "lwc";
 export default class RestApiFetch extends LightningElement {
   apodresult;
   loading = false;
-  response = false;
+  
   image = true;
 
   handleClick() {
+    loading=true;
     fetch(
       "https://api.nasa.gov/planetary/apod?api_key=cd6JN6xIeW56GKiDNl6rYlS394FVweClukuABaJ7"
     )
@@ -21,6 +22,7 @@ export default class RestApiFetch extends LightningElement {
         }
       })
       .then((jsonResponse) => {
+        loading=false;
         this.apodresult = jsonResponse;
         if (this.apodresult.media_type === "video") image = true;
       })
